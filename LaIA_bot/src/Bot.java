@@ -65,7 +65,7 @@ public class Bot extends TelegramLongPollingBot {
 
 			switch (call_data) {
 			case "incidencia":
-				showTipusIncidencia();
+				showTipusIncidencia(update, chat_id);
 				break;
 			case "informacio":
 
@@ -77,10 +77,9 @@ public class Bot extends TelegramLongPollingBot {
 		}
 	}
 
-	private void showTipusIncidencia(long chat_id) {
+	private void showTipusIncidencia(Update update, long chat_id) {
 		SendMessage message = new SendMessage() // Create a message object object
-				.setChatId(chat_id).setText(Emoji.HAPPY_PERSON_RAISING_ONE_HAND.toString()
-						+ "Hola, sóc la LaIA, la teva assistent mataronina! En qué et puc ajudar?");
+				.setChatId(chat_id).setText("Quina incidencia vols tramitar?");
 		InlineKeyboardMarkup markupInline = new InlineKeyboardMarkup();
 
 		List<List<InlineKeyboardButton>> rowsInline = new ArrayList<>();
@@ -88,14 +87,18 @@ public class Bot extends TelegramLongPollingBot {
 		List<InlineKeyboardButton> rowInfo = new ArrayList<>();
 		List<InlineKeyboardButton> rowTramits = new ArrayList<>();
 
-		rowIncidencia.add(new InlineKeyboardButton()
-				.setText(Emoji.DANGER_SIGN.toString() + "     Brutissia     " + Emoji.DANGER_SIGN.toString())
-				.setCallbackData("incidencia"));
+		rowTramits.add(new InlineKeyboardButton()
+				.setText(Emoji.POLICEMAN.toString() + "      Seguretat/Violència      " + Emoji.DOUBLE_EXCLAMATION.toString()).setCallbackData("seguretat"));
+		
 		rowInfo.add(new InlineKeyboardButton().setText(
 				Emoji.INFORMATION_SOURCE.toString() + "     Accident    " + Emoji.INFORMATION_SOURCE.toString())
-				.setCallbackData("informacio"));
-		rowTramits.add(new InlineKeyboardButton()
-				.setText(Emoji.INFO.toString() + "      Seguretat      " + Emoji.INFO.toString()).setCallbackData("tramits"));
+				.setCallbackData("accident"));
+		
+		rowIncidencia.add(new InlineKeyboardButton()
+				.setText(Emoji.DANGER_SIGN.toString() + "     Desperfecte Via Pública     " + Emoji.DANGER_SIGN.toString())
+				.setCallbackData("desperfecte"));
+		
+		
 
 		// Set the keyboard to the markup
 

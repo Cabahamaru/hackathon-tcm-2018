@@ -128,6 +128,8 @@ public enum Emoji {
     // Weather
     UMBRELLA_WITH_RAIN_DROPS(null, '\u2614'),
     HIGH_VOLTAGE_SIGN(null, '\u26A1'),
+    POLICEMAN('\uD83D', '\uDC6E'),
+    DOUBLE_EXCLAMATION(null, '\u203C'),
     DANGER_SIGN(null, '\u26A0'),
     SNOWMAN_WITHOUT_SNOW(null, '\u26C4'),
     SUN_BEHIND_CLOUD(null, '\u26C5'),
