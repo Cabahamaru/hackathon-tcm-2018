@@ -6,6 +6,7 @@ import org.telegram.telegrambots.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
@@ -68,11 +69,22 @@ public class Bot extends TelegramLongPollingBot {
 				showTipusIncidencia(update, chat_id);
 				break;
 			case "informacio":
-
+				connection.sendPOST();
 				break;
 			case "tramits":
-
+				getLocationIncidencia(chat_id);
 				break;
+			}
+		}else {
+			long chat_id = update.getMessage().getChatId();
+			SendMessage message = new SendMessage() // Create a message object object
+					.setChatId(chat_id).setText("gracies per enviar ubi:)");
+			
+			try {
+				sendMessage(message);
+			} catch (TelegramApiException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
@@ -115,6 +127,20 @@ public class Bot extends TelegramLongPollingBot {
 			e.printStackTrace();
 		}
 	}
+	
+	private void getLocationIncidencia(long chat_id) {
+
+        SendMessage message = new SendMessage() // Create a message object object
+                .setChatId(chat_id).setText(Emoji.HAPPY_PERSON_RAISING_ONE_HAND.toString()
+                        + "Hola, ens pots enviar la teva localitzacio pls?");
+
+		try {
+			sendMessage(message); // Sending our message object to user
+		} catch (TelegramApiException e) {
+			e.printStackTrace();
+		}
+
+    }
 
 	public String getBotUsername() {
 		return null;
