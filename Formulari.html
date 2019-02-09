@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Events</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Comença un event:</h2>
+  <br></br>
+	<div class="form-group">
+	 <form action="/action_page.php">
+		<div>
+			<p>Dia:</p>
+			<select class="from-control" id="Dia">
+				<option>Dilluns</option>
+				<option>Dimarts</option>
+				<option>Dimecres</option>
+				<option>Dijous</option>
+				<option>Divendres</option>
+				<option>Dissabte</option>
+				<option>Diumenge</option>
+		</select>
+		</div>
+		<br>
+		<div>
+			<p>Lloc:</p>
+			<select class="from-control" id="Lloc">
+				<option>Parc Central</option>
+				<option>Plaça Santa Anna</option>
+				<option>Plaça Ajuntament</option>
+				<option>Riera</option>
+		</select>
+		</div>
+		<br>
+		<div class="form-group">
+			<label for="email">Email:</label>
+			<input type="email" class="form-control" id="email">
+		</div>
+		<div class="form-group">
+			<label for="pwd">Nom activitat:</label>
+			<input type="text" class="form-control" id="nom">
+		</div>
+		<div>
+			<p>Categoria:</p>
+			<select class="from-control" id="Categoria">
+				<option>Música</option>
+				<option>Oci</option>
+				<option>Ensenyament</option>
+				<option>...</option>
+		</select>
+		<div> 
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-default">Envia</button>
+			</div>
+		</div>
+	</form>
+  </div>
+</div>
+
+</body>
+</html>
